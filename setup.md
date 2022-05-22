@@ -14,13 +14,9 @@ Setting up git
     git clone git@github.com:Manjunath200105/crypto_predictor_app.git
 ```
 
+docker logs -f crypto_predictor_app
+
+
 install docker desktop
 docker build --tag crypto-python-docker .
 
-
-
-
-cffi==1.11.5
-MarkupSafe==1.0
-tensorboard==2.0.0
-zope.interface==4.6.0

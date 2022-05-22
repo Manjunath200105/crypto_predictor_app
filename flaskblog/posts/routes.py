@@ -21,11 +21,13 @@ import numpy as np
 from pandas import DataFrame
 from pandas import concat
 from pandas import read_csv
+import yfinance as yf
 
 import tensorflow as tf # add to requirements
 
 import pandas as pd
-import datetime # add to requirements
+import datetime# add to requirements
+from datetime import date
 import pandas_datareader.data as web # add to requirements
 from pandas import Series, DataFrame
 import pygal # add to requirements
@@ -110,10 +112,11 @@ def set():
 def predict():
     if request.method == 'POST':
         stock_name = request.form['namequery']
-        start = datetime.datetime(2019, 1, 7)
-        end = datetime.datetime(2019, 10, 19)
+        end = datetime.datetime.today() - datetime.timedelta(days=1)
+        start = end - datetime.timedelta(days=285)
 
-        df = web.DataReader(stock_name, 'yahoo', start, end)
+        df = yf.download(stock_name, start, end)
+
         last_date = df.index[-1]
         day_list = []
         for d in range(5):
