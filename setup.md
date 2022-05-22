@@ -14,6 +14,8 @@ Setting up git
     git clone git@github.com:Manjunath200105/crypto_predictor_app.git
 ```
 
+python3 
+
 docker logs -f crypto_predictor_app
 
 

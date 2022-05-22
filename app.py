@@ -17,6 +17,11 @@ def stop_app():
     subprocess.run(["docker", "rm", "-f", "crypto_predictor_app"])
 
 
+def restart_app():
+    initialize()
+    start_app()
+
+
 if __name__ == '__main__':
     action = sys.argv[1].strip().lower()
     if action == 'start':
@@ -25,5 +30,7 @@ if __name__ == '__main__':
         stop_app()
     elif action == 'init':
         initialize()
+    elif action == 'restart':
+        restart_app()
     else:
         print("please provide valid command: init/start/stop")
